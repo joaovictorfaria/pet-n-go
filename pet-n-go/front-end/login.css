@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/images/loginbackground.png) no-repeat fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    overflow-y: hidden;
+}
+
+.container .containerLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    height: 550px;
+    width: 440px;
+    background-color: #3D0301;
+}
+
+.container .containerLogin .logo{
+        font-size: 32px;
+        font-weight: 600;
+        color: #EBE8DB;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        height: 40px;
+        width: 200px;
+}
+
+.container .containerLogin .form{
+    height: 270px;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 45px;
+}
+
+.container .containerLogin .form p{
+    color: #EBE8DB;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.container .containerLogin .form .inputs{
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #EBE8DB;
+    padding-left: 15px;
+    border-radius: 8px;
+    border-style: none;
+    height: 45px;
+    width: 100%;
+}
+
+.container .containerLogin .form .btnEntrar{
+    margin-top: 15px;
+    width: 125px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #EBE8DB;
+    color: #B03052;
+    border-radius: 8px;
+    border-style: none;
+}
+
+.container .containerLogin .form .btnEntrar:hover{
+    background-color: #B03052;
+    color: #EBE8DB;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.container .containerLogin .form .cadastreLink{
+    font-size: 12px;
+    color: #EBE8DB;
+    margin-top: -10px;
+    margin-left: -60px;
+}
+
+.container .containerLogin .form .cadastreLink a{
+    margin-left: 2px;
+    color: #B03052;
+}
+
+.container .containerLogin .or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.container .containerLogin .or .linhas {
+    width: 150px; 
+    border: none;
+    border-top: 2px solid #EBE8DB;
+    margin: 0 10px;  
+}
+
+.container .containerLogin .or p {
+    font-size: 15px;
+    color: #EBE8DB;
+    font-weight: 600;
+}
+
+.container .containerLogin .or span{
+    display: flex;
+    align-items: center;
+}
+
+.container .containerLogin .btnGoogle{
+    width: 170px;
+    height: 40px;
+    background-color: #3D0301;
+    border-color: #EBE8DB;
+    border-width: 2px;
+    border-style: solid;
+    font-weight: 500;
+    border-radius: 8px;
+    color: #EBE8DB;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    outline: none;
+}
+
+.container .containerLogin .entrarGoogle{
+    margin-top: 25px;
+}
+
+.container .containerLogin .btnGoogle:hover{
+    cursor: pointer;
+}

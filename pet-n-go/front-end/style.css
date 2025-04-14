@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: -300px;
+    margin-top: -190px;
 }
 
 .titulo .tituloPet{
@@ -106,6 +106,7 @@
 
 
 .buttons .buttonEntrar:hover{
+    cursor: pointer;
     background-color: #EBE8DB;
     color: #B03052;
     transition: 0.3s ease;
@@ -113,6 +114,7 @@
 }
 
 .buttons .buttonCriar:hover{
+    cursor: pointer;
     background-color: #B03052;
     color: #EBE8DB;
     transition: 0.3s ease;
