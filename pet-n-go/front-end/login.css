@@ -50,6 +50,15 @@
     margin-top: 45px;
 }
 
+.container .containerLogin .form form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .container .containerLogin .form p{
     color: #EBE8DB;
     font-size: 24px;

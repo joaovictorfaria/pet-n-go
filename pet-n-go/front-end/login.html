@@ -16,10 +16,14 @@
 
             <div class="form">
                 <p>Entrar</p>
-                <input class="inputs" type="email" placeholder="E-mail">
-                <input class="inputs" type="password" placeholder="Senha">
-                <span class="cadastreLink">Ainda não possui uma conta?<a href="#">Cadastre-se!</a></span>
-                <button class="btnEntrar">Entrar</button>
+                <form id="loginForm" action="">
+                    <input class="inputs" id="email" type="email" placeholder="E-mail">
+                    <input class="inputs" id="password" type="password" placeholder="Senha">
+                    <span class="cadastreLink">Ainda não possui uma conta?<a href="cadastro.html">Cadastre-se!</a></span>
+                    <button type="submit" class="btnEntrar">Entrar</button>
+                </form>
+                <div class="message"></div>
+                <script src="js/auth.js"></script>
             </div>
 
             <div class="or">

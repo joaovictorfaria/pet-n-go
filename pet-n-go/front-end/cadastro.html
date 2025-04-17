@@ -16,23 +16,26 @@
 
             <div class="form">
                 <p class="titulo">Cadastro</p>
-                <span>
-                    <input class="inputs" type="text" placeholder="Nome">
-                    <input class="inputs" type="text" placeholder="Sobrenome">
-                </span>
-                    <input class="inputEmail" type="email" placeholder="E-mail">
+                <form action="/api/register" method="post">
                     <span>
-                        <input class="inputs" type="password" placeholder="Senha">
-                        <input class="inputs" type="password" placeholder="Confirma">
+                        <input class="inputs" name="nome" type="text" placeholder="Nome">
+                        <input class="inputs" name="sobrenome" type="text" placeholder="Sobrenome">
                     </span>
-                <span class="euLi">
-                    <input type="checkbox" id="check"> 
-                    <p class="termos">Eu li e concordo com os <a href="#">Termos de Uso e Condições</a>
-                    </p>
-                </span>
-                <div class="btn">
-                    <button class="btnCadastrar">Cadastrar</button>
-                </div>  
+                        <input class="inputEmail" name="email" type="email" placeholder="E-mail">
+                        <span>
+                            <input class="inputs" name="password" type="password" placeholder="Senha">
+                            <input class="inputs" type="password" placeholder="Confirma">
+                        </span>
+                    <span class="euLi">
+                        <input type="checkbox" id="check"> 
+                        <p class="termos">Eu li e concordo com os <a href="#">Termos de Uso e Condições</a>
+                        </p>
+                    </span>
+                    <div class="btn">
+                        <button type="submit" class="btnCadastrar">Cadastrar</button>
+                    </div>  
+                </form>
+                
             </div>
 </body>
 </html>
