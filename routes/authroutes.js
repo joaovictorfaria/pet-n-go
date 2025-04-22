@@ -154,5 +154,31 @@ router.post('/upload', authMiddleware, upload.single('foto'), async (req, res) =
       }
 })
 
+//Deletar agendamento
+router.delete('/agendamentos/:id', authMiddleware, async (req, res) => {
+    const userId = req.user.id;
+    const agendamentoId = req.params.id;
+
+    try {
+        const [rows] = await db.execute(
+            'SELECT * FROM agendamentos WHERE idAgendamento = ? AND fkUsuario = ?', [agendamentoId, userId]
+        )
+
+        if (rows.length === 0){
+            return res.status(404).send('Agendamento não encontrado ou acesso negado')
+        }
+
+        await db.execute(
+            'DELETE FROM agendamentos WHERE idAgendamento = ?',
+            [agendamentoId]
+        )
+
+        res.status(200).send('Agendamento excluído com sucesso!')
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Erro ao excluir agendamento')
+    }
+})
+
 
 export default router
