@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    background-color: #EBE8DB;
+    position: absolute;
+    overflow-y: hidden;
+}
+
+.container .ola .bemvindo{
+    margin-top: -30px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #3D0301;
+}
+
+.container .ola .sair{
+    text-align: center;
+}
+
+.container .ola{
+    font-size: 18px;
+    font-weight: 400;
+    color: #3D0301;
+}
+
+.container .ola a{
+    text-decoration: none;
+    color: #3D0301;
+}
+
+.container .containerAgenda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    margin-top: -30px;
+    height: 475px;
+    width: 870px;
+    background-color: #D8D3C1;
+}
+
+.container .containerAgenda .titulo{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #3D0301;
+    display: flex;
+}
+
+.container .containerAgenda .agendar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    background-color: #3D0301;
+    position: absolute;
+    z-index: 1;
+    left: 68rem;
+    top: 5rem;
+}
+
+.container .containerAgenda .agendar img{
+    margin-top: 5px;
+}
+
+
+.cardAgendamento {
+    width: 34%;
+    margin-left: 20px;
+    background-color: #f5f0e6;
+    border-radius: 20px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: #4B2B21;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.agendamentos{
+    width: 100%;
+}
+
+.data-acoes{
+    display: flex;
+}
+
+.agendamento-todo{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.agendamento-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.pet-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3D0301;
+}
+
+.dados-pet .nome-pet {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.dados-pet .servico {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: -4px;
+}
+
+.agendamento-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 43px;
+}
+
+.agendamento-data .data {
+    font-weight: bold;
+}
+
+.agendamento-data .hora {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.acoes button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.acoes img {
+    width: 14px;
+    height: 14px;
+}
+
+.semAgenda{
+    width: 100%;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.semAgenda p{
+    color: #3D0301;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.semAgenda p i {
+    color: #3D0301;
+    font-size: 14px;
+    font-weight: 400;
+}

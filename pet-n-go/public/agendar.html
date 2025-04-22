@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agendar.css">
+    <title>Agendamentos</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <p>Pet & Go.</p>
+            <img src="assets/images/cathead_red.png" height="40px" width="40px">
+        </div>
+        <div class="voltar">
+            <a href="agendamentos.html"><img src="assets/images/Backred.png" width="40px" height="40px"></a>
+        </div>
+        <div class="containerAgendar">
+            <div class="titulo">
+                <p>Faça um novo agendamento</p>
+            </div>
+            <div class="agendamento">
+                <form id="formAgendamento">
+                    <span class="nomeServico">
+                        <div class="nome">
+                            <label>Nome:</label> <input type="text">
+                        </div>
+                        <div class="servico">
+                            <label>Serviço:</label> <select>
+                                <option value="Banho">Banho</option>
+                                <option value="Tosa">Tosa</option>
+                                <option value="Limpeza de dentes">Limpeza de dentes</option>
+                                <option value="Corte de unhas">Corte de unhas</option>
+                            </select>
+                        </div>
+                    </span>
+                    <span class="dataHora">
+                        <div class="data">
+                            <label>Data:</label> <input type="date">
+                        </div>
+                        <div class="hora">
+                            <label>Horário:</label>
+                            <select>
+                                <option value="11:00">11h</option>
+                                <option value="12:00">12h</option>
+                                <option value="13:00">13h</option>
+                                <option value="14:00">14h</option>
+                                <option value="15:00">15h</option>
+                                <option value="16:00">16h</option>
+                                <option value="17:00">17h</option>
+                                <option value="18:00">18h</option>
+                                <option value="19:00">19h</option>
+                            </select>
+                        </div>
+                    </span>
+                    <div class="carregarFoto">
+                        <div class="foto">
+                            <img id="previewImagem" src="assets/images/Upload.png" width="50px" height="50px">
+                        </div>
+                        <div class="text">
+                            <p>Carregue a foto do seu pet!</p>
+                            <input type="file" name="foto" id="fotoPetInput" accept="image/*" />
+                            <button type="button" class="btnUpload">Fazer upload</button>
+                            <p id="uploadStatus"></p>
+                        </div>
+                    </div>
+                    <div class="btnAgendarDiv">
+                        <button type="submit" class="btnAgendar">Agendar</button>
+                    </div>
+                </form>
+            </div>
+            <script src="js/agendar.js"></script>
+</body>
+</html>
