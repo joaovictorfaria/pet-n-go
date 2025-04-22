@@ -37,9 +37,9 @@ router.post('/login', async(req, res)=>{
             [email]
         )
         const user = users[0]
-        if(!user) return res.status(400).send('Usuário não encontrado')
+        if(!user) return res.status(400).send('Usuário não encontrado!')
         const valid = await bcrypt.compare(password, user.senha)
-        if(!valid) return res.status(401).send('Senha incorreta')
+        if(!valid) return res.status(401).send('Senha incorreta!')
         const token = jwt.sign(
         {id: user.idUsuario, email: user.email},
         process.env.JWT_SECRET,
@@ -177,6 +177,30 @@ router.delete('/agendamentos/:id', authMiddleware, async (req, res) => {
     } catch (err) {
         console.error(err)
         res.status(500).send('Erro ao excluir agendamento')
+    }
+})
+
+//Editar agendamento
+router.put('/agendamentos/:id', authMiddleware, async (req, res) => {
+    const {id} = req.params
+    const {nomePet, servico, data, hora, fkImagem} = req.body
+    const userId = req.user.id
+
+    try {
+        const [result] = await db.execute(
+            'UPDATE agendamentos SET nomePet = ?, servico = ?, data_agendada = ?, horario = ?, fkImagem = ? WHERE idAgendamento = ? AND fkUsuario = ?',
+            [nomePet, servico, data, hora, fkImagem, id, userId]
+        )
+
+        if (result.affectedRows === 0) {
+            return res.status(404).send('Agendamento não encontrado')
+        }  else {
+            res.send('Agendamento atualizado com sucesso!')
+        }
+        
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Erro ao atualizar agendamento')
     }
 })
 

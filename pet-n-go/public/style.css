@@ -109,6 +109,18 @@
     text-decoration: none;
 }
 
+.buttons .buttonCriar a{
+    color: #B03052;
+    text-decoration: none;
+}
+
+.buttons .buttonEntrar a:hover{
+    color: #B03052;
+}
+
+.buttons .buttonCriar a:hover{
+    color: #EBE8DB;
+}
 
 .buttons .buttonEntrar:hover{
     cursor: pointer;

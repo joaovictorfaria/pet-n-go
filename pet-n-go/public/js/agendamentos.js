@@ -101,6 +101,30 @@ window.addEventListener('DOMContentLoaded', async () => {
                     }
                 })
             })
+
+            document.querySelectorAll('.editar').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = e.currentTarget.closest('.cardAgendamento')
+            
+                    const id = card.getAttribute('data-id')
+                    const nomePet = card.querySelector('.nome-pet').innerText
+                    const servico = card.querySelector('.servico').innerText
+                    const data = card.querySelector('.data').innerText.split('/').reverse().join('-')
+                    const hora = card.querySelector('.hora').innerText
+            
+                    const dadosAgendamento = {
+                        id,
+                        nomePet,
+                        servico,
+                        data,
+                        hora
+                    }
+            
+                    localStorage.setItem('agendamentoEditar', JSON.stringify(dadosAgendamento))
+                    window.location.href = 'agendar.html'
+                })
+            })
+            
         } else {
             document.querySelector('.agendamentos').innerText = 'Erro ao carregar agendamentos.'
         }

@@ -1,39 +1,94 @@
-document.getElementById('formAgendamento')?.addEventListener('submit', async (e) => {
+async function handleSubmitAgendamento(e) {
     e.preventDefault()
 
     const nomePet = document.querySelector('.nome input').value
-    const servico = document.querySelector('.servico select').value 
-    const data = document.querySelector('.data input').value 
+    const servico = document.querySelector('.servico select').value
+    const data = document.querySelector('.data input').value
     const hora = document.querySelector('.hora select').value
     const token = localStorage.getItem('token')
+    const editarData = localStorage.getItem('agendamentoEditar')
 
-    const res =  await fetch('api/agendar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({nomePet, servico, data, hora, fkImagem: idImagem})
-    })
+    if (!nomePet || !servico || !data || !hora) {
+        alert('Preencha todos os campos!')
+        return
+    }
 
-    if (res.ok){
-        alert('Agendamento realizado com sucesso!')
-        window.location.href = 'agendamentos.html'
+    if (editarData) {
+        // Edição de agendamento
+        const { id } = JSON.parse(editarData)
+
+        // Se a imagem foi alterada, inclua o ID da imagem na requisição
+        const res = await fetch(`/api/agendamentos/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                nomePet,
+                servico,
+                data,
+                hora,
+                fkImagem: idImagem // Envia o ID da imagem se for uma edição
+            })
+        })
+
+        if (res.ok) {
+            alert('Agendamento editado com sucesso!')
+            localStorage.removeItem('agendamentoEditar')
+            window.location.href = 'agendamentos.html'
+        } else {
+            alert('Erro ao editar agendamento')
+        }
     } else {
-        const msg = await res.text()
-        alert('Erro' + msg)
+        // Criação de agendamento
+        if (!idImagem) {
+            alert('Por favor, envie uma imagem do pet antes de agendar!')
+            return
+        }
+
+        const res = await fetch('api/agendar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ nomePet, servico, data, hora, fkImagem: idImagem })
+        })
+
+        if (res.ok) {
+            alert('Agendamento realizado com sucesso!')
+            window.location.href = 'agendamentos.html'
+        } else {
+            const msg = await res.text()
+            alert('Erro: ' + msg)
+        }
+    }
+}
+
+// Preview da imagem
+const inputFoto = document.getElementById('fotoPetInput')
+const previewImagem = document.getElementById('previewImagem')
+
+inputFoto.addEventListener('change', () => {
+    const file = inputFoto.files[0]
+    if (file) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+            previewImagem.src = e.target.result
+        }
+        reader.readAsDataURL(file)
     }
 })
 
-let idImagem = null
-
+// Upload da imagem
 document.querySelector('.btnUpload').addEventListener('click', async (e) => {
     e.preventDefault()
 
     const fileInput = document.getElementById('fotoPetInput')
     const file = fileInput.files[0]
 
-    if (!file){
+    if (!file) {
         alert('Selecione uma imagem primeiro!')
         return
     }
@@ -43,7 +98,7 @@ document.querySelector('.btnUpload').addEventListener('click', async (e) => {
 
     const token = localStorage.getItem('token')
 
-    try{
+    try {
         const res = await fetch('api/upload', {
             method: 'POST',
             headers: {
@@ -52,7 +107,7 @@ document.querySelector('.btnUpload').addEventListener('click', async (e) => {
             body: formData
         })
 
-        if (res.ok){
+        if (res.ok) {
             const data = await res.json()
             idImagem = data.imageId
             document.getElementById('uploadStatus').innerText = 'Imagem enviada com sucesso!'
@@ -65,16 +120,23 @@ document.querySelector('.btnUpload').addEventListener('click', async (e) => {
     }
 })
 
-const inputFoto = document.getElementById('fotoPetInput');
-const previewImagem = document.getElementById('previewImagem');
+// Carregar dados para edição e adicionar listener de submit
+window.addEventListener('DOMContentLoaded', () => {
+    const editarData = localStorage.getItem('agendamentoEditar')
 
-inputFoto.addEventListener('change', () => {
-    const file = inputFoto.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            previewImagem.src = e.target.result; // Atualiza a imagem na tela
-        }
-        reader.readAsDataURL(file);
+    if (editarData) {
+        const dados = JSON.parse(editarData)
+        document.querySelector('.nome input').value = dados.nomePet
+        document.querySelector('.servico select').value = dados.servico
+        document.querySelector('.data input').value = dados.data
+        document.querySelector('.hora select').value = dados.hora
+
+        // Se já tiver uma imagem associada ao agendamento, defina o ID da imagem
+        idImagem = dados.fkImagem || null
+
+        document.querySelector('.btnAgendar').innerText = 'Salvar'
     }
-});
+
+    // Adiciona evento de submit SEMPRE
+    document.getElementById('formAgendamento')?.addEventListener('submit', handleSubmitAgendamento)
+})

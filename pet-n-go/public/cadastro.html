@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="containerCadastro">
-            <div class="logo">
+            <div onclick="voltarInicio()" class="logo">
                 <p>Pet & Go.</p>
                 <img src="../assets/images/cathead_red.png" height="40px" width="40px">
             </div>
@@ -27,7 +27,7 @@
                             <input class="inputs" type="password" placeholder="Confirma">
                         </span>
                     <span class="euLi">
-                        <input type="checkbox" id="check"> 
+                        <input type="checkbox" id="check" required> 
                         <p class="termos">Eu li e concordo com os <a href="#">Termos de Uso e Condições</a>
                         </p>
                     </span>
@@ -37,5 +37,6 @@
                 </form>
                 
             </div>
+            <script src="js/auth.js"></script>
 </body>
 </html>

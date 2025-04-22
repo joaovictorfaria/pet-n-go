@@ -40,6 +40,10 @@
         width: 200px;
 }
 
+.container .containerLogin .logo:hover{
+    cursor: pointer;
+}
+
 .container .containerLogin .form{
     height: 270px;
     width: 290px;
@@ -155,4 +159,9 @@
 
 .container .containerLogin .btnGoogle:hover{
     cursor: pointer;
+}
+
+#message{
+    color: #EBE8DB;
+    font-weight: 600;
 }

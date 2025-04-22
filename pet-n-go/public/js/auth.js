@@ -35,3 +35,7 @@ async function acessar() {
 function logout(){
     window.location.href = '/login.html'
 }
+
+function voltarInicio(){
+    window.location.href = '/index.html'
+}

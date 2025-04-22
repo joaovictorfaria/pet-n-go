@@ -40,6 +40,10 @@
         width: 200px;
 }
 
+.container .containerCadastro .logo:hover{
+    cursor: pointer;
+}
+
 .container .containerCadastro .form{
     display: flex;
     flex-direction: column;
