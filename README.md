@@ -71,10 +71,10 @@ O sistema garante segurança e praticidade para cuidar dos pets com muito amor e
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/pet-and-go.git
+git clone https://github.com/joaovictorfaria/pet-n-go.git
 
 # Acesse o diretório do projeto
-cd pet-and-go
+cd pet-n-go
 
 # Instale as dependências
 npm install
